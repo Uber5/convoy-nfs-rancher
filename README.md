@@ -1,9 +1,12 @@
 # convoy-nfs-rancher
+
 Use a docker-provided nfs service as container storage via convoy
 
 # Usage
 
-In `coreos.units` in `/var/lib/coreos-install/user_data`:
+Given a mount command (e.g. `mount -t nfs -o rw 10.42.202.184:/gv1 /opt/convoy`)
+and a mount point (e.g. `/opt/convoy`), add the following to `coreos.units` in
+`/var/lib/coreos-install/user_data`:
 
 ```
   - name: convoy-nfs.service
@@ -21,3 +24,5 @@ In `coreos.units` in `/var/lib/coreos-install/user_data`:
       [Install]
       WantedBy=multi-user.target
 ```
+
+
